@@ -1,0 +1,29 @@
+public class SecondHighestNumber {
+    public static void main(String[] args) {
+        int[] arr1 = {2, 34, 6, 5, 28, 15};
+        int secondHighest = findSecondHighest(arr1);
+        System.out.println("Second highest number: " + secondHighest);
+    }
+
+    public static int findSecondHighest(int[] arr) {
+        if (arr.length < 2) {
+            System.out.println("Array should have at least two elements");
+            return -1; // Return some default value or handle the error as per your requirement
+        }
+
+        int max = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+
+        for (int num : arr) {
+            if (num > max) {
+                secondMax = max;
+                max = num;
+            } else if (num > secondMax && num != max) {
+                secondMax = num;
+            }
+        }
+
+        return secondMax;
+    }
+}
+
